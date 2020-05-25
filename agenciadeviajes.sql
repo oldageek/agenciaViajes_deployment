@@ -1,17 +1,20 @@
--- --------------------------------------------------------
--- Host:                         127.0.0.1
--- Versión del servidor:         10.4.10-MariaDB - mariadb.org binary distribution
--- SO del servidor:              Win64
--- HeidiSQL Versión:             11.0.0.5919
--- --------------------------------------------------------
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET NAMES utf8 */;
 /*!50503 SET NAMES utf8mb4 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
--- Volcando datos para la tabla agenciadeviajes.testimoniales: 5 rows
+CREATE DATABASE IF NOT EXISTS `agenciadeviajes` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `agenciadeviajes`;
+
+CREATE TABLE IF NOT EXISTS `testimoniales` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(60) NOT NULL DEFAULT '0',
+  `correo` varchar(30) NOT NULL DEFAULT '0',
+  `mensaje` longtext NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
 /*!40000 ALTER TABLE `testimoniales` DISABLE KEYS */;
 INSERT INTO `testimoniales` (`id`, `nombre`, `correo`, `mensaje`) VALUES
 	(1, 'Oldahir', 'ejemplo@hotmail.com', 'como siempre de la pinches cola'),
@@ -21,7 +24,18 @@ INSERT INTO `testimoniales` (`id`, `nombre`, `correo`, `mensaje`) VALUES
 	(5, 'Juan', 'javier@gmail.com', 'Hay muchas variaciones de los pasajes de Lorem Ipsum disponibles, pero la mayoría sufrió alteraciones en alguna manera, ya sea porque se le agregó humor, o palabras aleatorias que no parecen ni un poco creíbles. Si vas a utilizar un pasaje de Lorem Ipsum, necesitás estar seguro de que no hay nada avergonzante escondido en el medio del texto.');
 /*!40000 ALTER TABLE `testimoniales` ENABLE KEYS */;
 
--- Volcando datos para la tabla agenciadeviajes.viajes: 6 rows
+CREATE TABLE IF NOT EXISTS `viajes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `titulo` varchar(50) NOT NULL,
+  `precio` varchar(100) NOT NULL,
+  `fecha_ida` date NOT NULL,
+  `fecha_vuelta` date NOT NULL,
+  `imagen` varchar(50) NOT NULL,
+  `descripcion` longtext NOT NULL,
+  `disponibles` varchar(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
 /*!40000 ALTER TABLE `viajes` DISABLE KEYS */;
 INSERT INTO `viajes` (`id`, `titulo`, `precio`, `fecha_ida`, `fecha_vuelta`, `imagen`, `descripcion`, `disponibles`) VALUES
 	(1, 'Viaje a Roma, Italia Este Verano', '50000', '2019-06-24', '2019-06-30', 'roma', 'Praesent tincidunt ante at justo semper volutpat. Sed risus neque, scelerisque id dictum in, placerat non erat. Sed eget tellus eu mauris faucibus pharetra. Praesent vulputate diam ac diam dignissim, eu semper turpis gravida. Vestibulum tempor purus orci, vitae ullamcorper erat congue quis. Nullam dapibus dui a velit lacinia, eu cursus massa cursus. Morbi lobortis fermentum urna, quis tincidunt justo varius vitae. In justo nisl, auctor vel eros sed, tempus efficitur lacus. Maecenas volutpat pharetra dolor, nec rutrum ipsum dapibus id.\r\n\r\nMauris ultricies augue lectus, efficitur tincidunt enim euismod non. Praesent nisl elit, eleifend et eleifend eu, venenatis et felis. Donec eleifend mi in congue semper. Quisque hendrerit purus eget pharetra laoreet. Donec nisl nisi, auctor at vehicula et, fermentum sed urna. In nec porta felis, eu ullamcorper lacus. Curabitur scelerisque commodo laoreet. Donec finibus vel nibh quis ultrices. Integer varius tellus sed leo tempor, vitae ullamcorper leo placerat.', '32'),
